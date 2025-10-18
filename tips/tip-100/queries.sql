@@ -6,6 +6,8 @@ ALTER SESSION SET ABORT_DETACHED_QUERY = TRUE;
 -- save the returned value somewhere
 SELECT CURRENT_SESSION();
 
+-- thi query will be aborted if the session is closed before it completes
+
 select count(*) as count7
 from store_sales, household_demographics, time_dim, store
 where ss_sold_time_sk = time_dim.t_time_sk
@@ -16,4 +18,4 @@ where ss_sold_time_sk = time_dim.t_time_sk
   and household_demographics.hd_dep_count = 5
   and store.s_store_name = 'ese'
 order by count(*)
-limit 100;
+limit 101;
